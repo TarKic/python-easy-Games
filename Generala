@@ -1,1 +1,50 @@
+import random
+cantJugadores = int (input("Ingrese la cantidad de jugadores: "))
+jugadores = 1
+sumaPuntos1 = 0
+sumaPuntos2 = 0
+sumaPuntos3 = 0
+sumaPuntos4 = 0
+sumaPuntos5 = 0
+sumaPuntos6 = 0
+servida = False
+tocoFull = False
+full = 30
+tocoEscalera = False
+escalera = 20
+tocoPoker = False
+poker = 40
+tocoGenerala = False
+generala = 50
+dobleGenerala = 100
+cantTiros = 0
+puntos = 0
+
+while (cantTiros <= 2):
+    print ("Es el turno del Jugador ", jugadores)
+    dado1 = random.randint(1,6)
+    dado2 = random.randint(1,6)
+    dado3 = random.randint(1,6)
+    dado4 = random.randint(1,6)
+    dado5 = random.randint(1,6)
+
+    if (dado1 == dado2) and (dado2 == dado3) and (dado3 == dado4) and (dado4 == dado5) and generala == False:
+        if (cantTiros == 1):
+            print (" GENERALA SERVIDA!")
+            puntos += (generala + 5)
+            generala = True
+        else:
+            print ("GENERALA!")
+            puntos += generala
+            generala = True
+        
+    elif ((dado1 == dado2) and (dado2 == dado3) and (dado3 == dado4) and (dado4 == dado5) and generala == True):
+        if (cantTiros == 1):
+            print (" DBOLE GENERALA SERVIDA!")
+            puntos += (dobleGenerala + 5)
+        else:
+            print ("DOBLE GENERALA!!!!")
+            
+            puntos += dobleGenerala
+    elif (dado1 == dado2) and (dado1== dado3) and (dado3 != dado4) and (dado4 != dado5) or (dado1 == dado2 ):
 

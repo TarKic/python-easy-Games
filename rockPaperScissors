@@ -29,3 +29,4 @@ while player == False:
         player = False
         computer = options[randint (0,2)]
 
+    player = True

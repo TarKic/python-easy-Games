@@ -20,14 +20,24 @@ dobleGenerala = 100
 cantTiros = 0
 puntos = 0
 
-while (cantTiros <= 2):
-    print ("Es el turno del Jugador ", jugadores)
-    dado1 = random.randint(1,6)
-    dado2 = random.randint(1,6)
-    dado3 = random.randint(1,6)
-    dado4 = random.randint(1,6)
-    dado5 = random.randint(1,6)
 
+while (cantTiros <= 2):
+    cantTiros += 1
+    while cantTiros == 1:
+        print ("Es el turno del Jugador ", jugadores)
+        dado1 = random.randint(1,6)
+        dado2 = random.randint(1,6)
+        dado3 = random.randint(1,6)
+        dado4 = random.randint(1,6)
+        dado5 = random.randint(1,6)
+        print ("Te han salido los siguientes numeros: ")
+        print (dado1)
+        print (dado2)
+        print (dado3)
+        print (dado4)
+        print (dado5)
+    
+    
     if (dado1 == dado2) and (dado2 == dado3) and (dado3 == dado4) and (dado4 == dado5) and generala == False:
         if (cantTiros == 1):
             print (" GENERALA SERVIDA!")
@@ -46,5 +56,5 @@ while (cantTiros <= 2):
             print ("DOBLE GENERALA!!!!")
             
             puntos += dobleGenerala
-    elif (dado1 == dado2) and (dado1== dado3) and (dado3 != dado4) and (dado4 != dado5) or (dado1 == dado2 ):
+    #elif (dado1 == dado2) and (dado1== dado3) and (dado3 != dado4) and (dado4 != dado5) or (dado1 == dado2 ):
 

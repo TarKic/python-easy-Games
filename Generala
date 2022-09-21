@@ -1,9 +1,14 @@
+from asyncio.format_helpers import _format_callback_source
+from operator import truediv
 import random
 cantJugadores = int (input("Ingrese la cantidad de jugadores: "))
 jugadores = 1
 sumaPuntos1 = 0
+cantidadUnos = 0
 sumaPuntos2 = 0
+cantidadDos = 0
 sumaPuntos3 = 0
+cantidad3 = 0
 sumaPuntos4 = 0
 sumaPuntos5 = 0
 sumaPuntos6 = 0
@@ -19,7 +24,7 @@ generala = 50
 dobleGenerala = 100
 cantTiros = 0
 puntos = 0
-
+dados = []
 
 while (cantTiros <= 2):
     cantTiros += 1
@@ -36,7 +41,27 @@ while (cantTiros <= 2):
         print (dado3)
         print (dado4)
         print (dado5)
+        if ((dado1 == dado2 and dado1 == dado3 and dado1 != dado4 and dado4 == dado5 and tocoFull == False) or (dado1 == dado3) and (dado3 == dado4) and (dado3 != dado2) and (dado2 == dado5) and tocoFull == False) or ((dado2 == dado3) and (dado2 == dado4) and (dado2 != dado1) and (dado1 == dado5) and tocoFull == False) or ((dado5 == dado3) and (dado5 == dado4) (dado5 != dado1) and (dado1 == dado2) and tocoFull == False) or ((dado1 == dado5) and (dado1 == dado2) and (dado1 != dado4) and (dado4 == dado3) and tocoFull == False) :
+            servida = True
+            tocoFull = True
+            puntos += (full + 5)
+            cantTiros += 1
+        elif ((dado1 == dado2) and (dado2 == dado3) and (dado1 == dado4) and (dado4 != dado5) and tocoFull == False) or (()):    
+        
+        
+        
+        cantDados = int (input ("Con cuantos dados deseas quedarte? "))
+        if (tocoEscalera == False and tocoFull == False and tocoPoker == False and tocoGenerala == False):
+            for i in range (cantDados):
+                dadoElegido = str(input("Con cual?"))
+                dados.append (dadoElegido)
+            cantTiros += 1
     
+    print ("Es el turno del Jugador ", jugadores)
+    
+        
+
+
     
     if (dado1 == dado2) and (dado2 == dado3) and (dado3 == dado4) and (dado4 == dado5) and generala == False:
         if (cantTiros == 1):

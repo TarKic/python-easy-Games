@@ -41,13 +41,19 @@ while (cantTiros <= 2):
         print (dado3)
         print (dado4)
         print (dado5)
-        if ((dado1 == dado2 and dado1 == dado3 and dado1 != dado4 and dado4 == dado5 and tocoFull == False) or (dado1 == dado3) and (dado3 == dado4) and (dado3 != dado2) and (dado2 == dado5) and tocoFull == False) or ((dado2 == dado3) and (dado2 == dado4) and (dado2 != dado1) and (dado1 == dado5) and tocoFull == False) or ((dado5 == dado3) and (dado5 == dado4) (dado5 != dado1) and (dado1 == dado2) and tocoFull == False) or ((dado1 == dado5) and (dado1 == dado2) and (dado1 != dado4) and (dado4 == dado3) and tocoFull == False) :
+        if ((dado1 == dado2 and dado1 == dado3 and dado1 != dado4 and dado4 == dado5 and (tocoFull == False)) or (dado1 == dado3) and (dado3 == dado4) and (dado3 != dado2) and (dado2 == dado5) and (tocoFull == False)) or ((dado2 == dado3) and (dado2 == dado4) and (dado2 != dado1) and (dado1 == dado5) and (tocoFull == False)) or ((dado5 == dado3) and (dado5 == dado4) (dado5 != dado1) and (dado1 == dado2) and (tocoFull == False)) or ((dado1 == dado5) and (dado1 == dado2) and (dado1 != dado4) and (dado4 == dado3) and (tocoFull == False)) or ((dado1 == dado5) and (dado1 == dado4) and (dado2 == dado3) and (tocoFull == False) ):
+            print ("FULL!")
             servida = True
             tocoFull = True
             puntos += (full + 5)
             cantTiros += 1
-        elif ((dado1 == dado2) and (dado2 == dado3) and (dado1 == dado4) and (dado4 != dado5) and tocoFull == False) or (()):    
-        
+        elif ((dado1 == dado2) and (dado2 == dado3) and (dado1 == dado4) and (dado4 != dado5) and (tocoPoker == False)) or ((dado1 == dado2) and (dado1 == dado3) and (dado1 == dado5) and (dado1 != dado4) and (tocoPoker == False)) or ((dado1 == dado2) and (dado1 == dado4) and (dado1 == dado5) and (dado1 != dado3) and (tocoPoker == False)) or ((dado1 == dado3) and (dado1 == dado4) and (dado1== dado5) and (dado1 != dado2) and (tocoPoker == False)) or ((dado2 == dado3) and (dado2 == dado4) and (dado2 == dado5) and (dado2 != dado1) and (tocoPoker == False)):
+            print ("POKER!")
+            servida = True
+            tocoPoker = True
+            puntos += (poker + 5)
+            cantTiros += 1
+            
         
         
         cantDados = int (input ("Con cuantos dados deseas quedarte? "))

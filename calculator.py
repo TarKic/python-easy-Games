@@ -19,7 +19,7 @@ def potencia (numero1, numero2):
     return resultado
 
 #def raiz (numero1, numero2):
-    
+
 
 print ("CALCULADORA")
 num1 = int (input("Ingrese el primer numero: "))

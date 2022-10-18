@@ -1,0 +1,16 @@
+tablero = [[" "," "," "],[" "," "," "],[" "," "," "]]
+
+print(" %c | %c | %c " %(tablero[0][0],tablero[0][1],tablero[0][2]))   
+print("___|___|___")   
+print(" %c | %c | %c " %(tablero[1][0],tablero[1][1],tablero[1][2])) 
+print("___|___|___")    
+print(" %c | %c | %c " % (tablero[2][0],tablero[2][1],tablero[2][2]))
+
+aux = len(tablero)
+gano = False
+while (aux != 0 or gano != True):
+    jugador1 = input ('X, Donde quiere jugar? 1-9')
+    if (jugador1 == 1):
+        tablero[0][0] = 'X'
+    elif (jugador1 == 2):
+        tablero [0][1] == 'X'

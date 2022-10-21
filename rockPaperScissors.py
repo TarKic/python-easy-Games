@@ -25,7 +25,6 @@ while player == False:
             print ("Perdiste... La", computer, "aplasta a la ", player)
     another = input ("Queres seguir jugando?: ")
     if (another == 'si' or 'Si'):
-        
         player = False
         computer = options[randint (0,2)]
 

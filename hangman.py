@@ -17,6 +17,24 @@ def seleccionaPalabra (listaImportada): #Busca, aleatoriamente la palabra que se
     palabraAdivinar = listaImportada[random.randint(0,len(lista) - 1)] 
     return palabraAdivinar
 
+
+def dibujaPersona (intentos): # Para
+    if intentos == 1:
+        print ('\tO')
+    elif (intentos == 2):
+        print ('\tO')
+        print ("\t|")
+    elif (intentos == 3):
+        print ('\t 0')
+        print ("\t |")
+        print ('\t/')
+    elif (intentos == 4):
+        print ('\t 0')
+        print ("\t |")
+        print ('\t/')
+        #rint ("\")
+
+
 lista = buscaPalabras ()
 palabra = seleccionaPalabra (lista)
 tablero = generaRenglones (palabra)
@@ -24,6 +42,7 @@ chances = 5
 intentos = 0
 print (palabra) #La dejo para ir probando si funciona el codigo, pero hay que sacar este print
 
+nombre = input ("Ingrese el nombre de la persona que jugara: ")
 
 while (chances > intentos): #Mientras no llegue a los 5 intentos, sigue pidiendole letras y llena el tablero (los rengoles) con las letras correctas que el usuario va poniendo
     esta = False 
@@ -39,12 +58,13 @@ while (chances > intentos): #Mientras no llegue a los 5 intentos, sigue pidiendo
         palabraAdivinada = ''.join (tablero) #pasa a string la lista tablero para que quede como palabra 
 
  
-    if palabra == palabraAdivinada: #Esto todavia no lo pude hacer funcionar, que el algoritmo se de cuenta cuando se termina el juego si ganas
-        print ("Ganaste")
+   
         
     if (esta == False): #Aca esta el sumador de intentos
         intentos += 1 
+        dibujo = dibujaPersona (intentos)
     print (intentos)
 
+datos = (nombre,intentos)
 
 print ("Perdiste... La palabra era", palabra) #Mensaje si el usuario pasa los intentos sin poder adivinar la palabra

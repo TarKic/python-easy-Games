@@ -28,6 +28,7 @@ print (palabra) #La dejo para ir probando si funciona el codigo, pero hay que sa
 while (chances > intentos): #Mientras no llegue a los 5 intentos, sigue pidiendole letras y llena el tablero (los rengoles) con las letras correctas que el usuario va poniendo
     esta = False 
     termino = False
+    print (tablero) 
     letra = input ("Ingrese la letra: ")
     for i in range (len(palabra)-1):
         if (palabra[i] == letra):
@@ -35,8 +36,10 @@ while (chances > intentos): #Mientras no llegue a los 5 intentos, sigue pidiendo
             tablero[i] = letra
             print (tablero)
             esta = True
+        palabraAdivinada = ''.join (tablero) #pasa a string la lista tablero para que quede como palabra 
 
-    if palabra == str(tablero): #Esto todavia no lo pude hacer funcionar, que el algoritmo se de cuenta cuando se termina el juego si ganas
+ 
+    if palabra == palabraAdivinada: #Esto todavia no lo pude hacer funcionar, que el algoritmo se de cuenta cuando se termina el juego si ganas
         print ("Ganaste")
         
     if (esta == False): #Aca esta el sumador de intentos

@@ -45,3 +45,19 @@ momento
 trabajador 
 television
 radio
+ejecutando
+legislativo
+ejecutivo
+judicial
+colegio
+secundario
+primario
+velocidad
+dispositivos
+procesadores
+memorias
+placa de video
+impresora
+monitor
+disco solido
+disco duro

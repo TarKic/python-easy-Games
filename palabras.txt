@@ -1,4 +1,3 @@
-hola
 argentina
 guerra
 paises
@@ -13,8 +12,8 @@ perifericos
 facultad
 mochila
 lapiz
-calculadora 
-regla 
+calculadora
+regla
 goma de borrar
 matematica
 america
@@ -24,25 +23,25 @@ antartica
 futbol
 olimpiadas
 mundiales
-basquet 
-venezuela 
-computadora 
+basquet
+venezuela
+computadora
 proyector
-algoritmo 
-celular 
+algoritmo
+celular
 bateria
 auriculares
-ingenieria 
-informatica 
+ingenieria
+informatica
 internacional
 gobierno
 durante
-siempre 
+siempre
 paises
 politica
 presidente
 momento
-trabajador 
+trabajador
 television
 radio
 ejecutando
@@ -66,4 +65,4 @@ arquitecto
 abogado
 juzgado
 fiscal
-plaza 
+plaza

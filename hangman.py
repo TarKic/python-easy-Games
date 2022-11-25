@@ -1,70 +1,155 @@
 import random
-"""Creo que para el TP usamos archivos, y lo que fuimos viendo antes del primer parcial, no sé como incluiría tuplas, o diccionarios. Tuplas, podemos incluirlo como que el usuario ingrese su nombre y si adivina guardamos en una tupla el nombre del usuario y la cant de intentos, y después, comparamos todos los usuarios y vemos quien lo hizo en menos intentos
-x ejemplo (juan, 5) lo comparamos con (gabriel, 2). Lo haria de dos niveles, el nivel facil, que te de la primer letra de la palabra elegida y mas chances , y el avanzado que no te de ninugna pista y tengas menos intentos """
-def buscaPalabras (): #Cargamos un archivos con palabras y acá, la traemos al programa principal como lista
-    arch = open ("palabras.txt", "rt")
-    palabras = arch.readlines ()
-    arch.close ()
-    return palabras
 
-def generaRenglones (a): #Genera la cantidad de _ que tiene la palabra, simplemente un detalle estético
+def buscaPalabras (): 
+    try:
+        arch = open ("palabras.txt", "rt")
+    except IOError:
+        print ("No se pudo abrir el archivo...")
+    else:
+        palabras = arch.readlines ()
+        arch.close ()
+        return palabras
+
+def generaRenglones (a): 
     lista = []
     for i in range (len(a)-1):
-        lista.append ("_") 
+        lista.append ("_ ") 
     return lista
 
-def seleccionaPalabra (listaImportada): #Busca, aleatoriamente la palabra que será utilizada para que el usuario la adivine
+def seleccionaPalabra (listaImportada): 
     palabraAdivinar = listaImportada[random.randint(0,len(lista) - 1)] 
     return palabraAdivinar
 
-
-def dibujaPersona (intentos): # Para
+def dibujaPersona (intentos):  
     if intentos == 1:
-        print ('\tO')
+         print("   _____ \n"
+                  "  |     |\n"
+                  "  |     O \n"
+                  "  |      \n"
+                  "  |      \n"
+                  "  |      \n"
+                  "  |      \n"
+                  "__|__\n")
     elif (intentos == 2):
-        print ('\tO')
-        print ("\t|")
+        print("   _____ \n"
+                  "  |     | \n"
+                  "  |     O \n"
+                  "  |     | \n"
+                  "  |      \n"
+                  "  |      \n"
+                  "  |      \n"
+                  "__|__\n")
     elif (intentos == 3):
-        print ('\t 0')
-        print ("\t |")
-        print ('\t/')
+         print("   _____ \n"
+                 "  |     | \n"
+                 "  |     O \n"
+                 "  |     |\ \n"
+                 "  |      \n"
+                 "  |      \n"
+                 "  |      \n"
+                 "__|__\n")
     elif (intentos == 4):
-        print ('\t 0')
-        print ("\t |")
-        print ('\t/')
-        #rint ("\")
+        print("   _____ \n"
+                  "  |     | \n"
+                  "  |     O \n"
+                  "  |    /|\ \n"
+                  "  |      \n"
+                  "  |      \n"
+                  "  |      \n"
+                  "__|__\n")
+    elif (intentos == 5):
+        print("   _____ \n"
+                  "  |     | \n"
+                  "  |     O \n"
+                  "  |    /|\ \n"
+                  "  |      \ \n"
+                  "__|__\n")
+    elif (intentos == 6):
+        print("   _____ \n"
+                  "  |     | \n"
+                  "  |     O \n"
+                  "  |    /|\ \n"
+                  "  |    / \ \n"    
+                  "  |        \n"
+                  "  |         \n"
+                  "__|__\n")
 
 
-lista = buscaPalabras ()
-palabra = seleccionaPalabra (lista)
-tablero = generaRenglones (palabra)
-chances = 5
-intentos = 0
-print (palabra) #La dejo para ir probando si funciona el codigo, pero hay que sacar este print
 
-nombre = input ("Ingrese el nombre de la persona que jugara: ")
+cantidadDeJugadores = int (input ("Ingrese la cantidad de usuarios que jugaran: "))
+yaJugaron = 0
+listaParticipantes = []
+listaPuntajes = []
 
-while (chances > intentos): #Mientras no llegue a los 5 intentos, sigue pidiendole letras y llena el tablero (los rengoles) con las letras correctas que el usuario va poniendo
-    esta = False 
-    termino = False
-    print (tablero) 
-    letra = input ("Ingrese la letra: ")
-    for i in range (len(palabra)-1):
-        if (palabra[i] == letra):
-            print ("Acertaste...")
-            tablero[i] = letra
-            print (tablero)
-            esta = True
-        palabraAdivinada = ''.join (tablero) #pasa a string la lista tablero para que quede como palabra 
+while (yaJugaron < cantidadDeJugadores ):
+    nombre = input ("Ingrese el nombre de la persona que jugara: ")
+    listaParticipantes.append(nombre)
+    yaJugaron += 1 #Sumador para indicar que un jugador comenzó un nuevo juego
+    
+    #Llamado a las funciones requeridas para el funcionamiento del programa
+    lista = buscaPalabras ()
+    palabra = seleccionaPalabra (lista)
+    tablero = generaRenglones (palabra)
+    chances = 6
+    intentos = 0
+    usoIntentos = 0
+    cantidadLetras = len(palabra)-1 
+    listasUtilizadas = [] 
+    aciertos = 0
 
- 
-   
+    while (chances > intentos) and aciertos != cantidadLetras: 
+        esta = False 
+        termino = False
+        palabraAdivinada = ''.join (tablero) 
+        print (palabraAdivinada) 
         
-    if (esta == False): #Aca esta el sumador de intentos
-        intentos += 1 
-        dibujo = dibujaPersona (intentos)
-    print (intentos)
+        
+        letra = input ("Ingrese la letra: ")
+        letra = letra.lower()
+        
+        listasUtilizadas.append (letra + " , ")
+        if (len(listasUtilizadas) > 0):
+            print ("Las letras que se usaron fueron: ")
+            for i in range (len(listasUtilizadas)):
+                print (listasUtilizadas[i],end = '')
+        
+        for i in range (len(palabra)-1):   
+            if (palabra[i] == letra):
+                tablero[i] = letra
+                esta = True
+            
+        
+        if (esta == True):
+            print ("\nAcertaste la letra!")
+            letrasRepetidas = palabra.count (letra)
+            aciertos += letrasRepetidas
+            usoIntentos += 1
+            print('\n')
+            dibujo = dibujaPersona (intentos)
 
-datos = (nombre,intentos)
+        
+        if (esta == False): #Aca esta el sumador de intentos
+            intentos += 1
+            restantes = chances - intentos
+            print ("\n")
+            dibujo = dibujaPersona (intentos)
+            print ("Te quedan", restantes,'intentos')
+        
+    
 
-print ("Perdiste... La palabra era", palabra) #Mensaje si el usuario pasa los intentos sin poder adivinar la palabra
+    
+    if (aciertos == cantidadLetras):
+        print ("Adivinaste! la palabra era",palabra)
+        listaPuntajes.append (usoIntentos)
+    else: 
+        print ("Perdiste... La palabra era", palabra) 
+        listaPuntajes.append (0)
+
+    
+
+
+for i in range (len(listaPuntajes)):
+    if (listaPuntajes[i] == 0):
+        print ("El\la jugador\a ",listaParticipantes[i]," no adivino la palabra")
+    else:
+        print("El\la jugador\a", listaParticipantes[i]," adivino en: ", listaPuntajes[i], "intentos")

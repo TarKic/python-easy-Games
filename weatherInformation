@@ -11,4 +11,3 @@ weatherData = requests.get (baseUrl).json ()
 
 
 pprint (weatherData.clouds())
-asd

@@ -1,8 +1,0 @@
-tablero = [[0 for j in range(7)] for i in range(7)]
-ganaste = False
-while (ganaste == False):
-    for i in range (len(tablero)):
-            print ()
-            for j in range (7):
-                print ("%3a"%tablero[i][j], end= " ")
-    

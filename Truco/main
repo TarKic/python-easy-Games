@@ -1,0 +1,98 @@
+import random 
+def cartas ():
+    cantidad = 0
+    mano = []
+    mano2 = []
+    baraja = [1,2,3,4,5,6,7,10,11,12]
+    palo = ['Oro','Basto','Espada', 'Copa']
+    while cantidad != 3:
+        carta = str(baraja[random.randint (0,9)]) + (" ") + palo [random.randint (0,3)]
+        cantidad += 1
+        mano.append (carta)
+        mano2.append (carta)
+    if (mano [0] == mano [1]):
+        del mano [0]
+        mano.append (carta)
+    elif  (mano [1] == mano [2]):
+        del mano[1]
+        mano.append (carta)
+    else:
+        del mano [2]
+        mano.append (carta)
+   
+    return (mano)
+
+def controlaCartas (mano1,mano2):
+    if (mano1 [0] == mano2[0] or mano1 [0] == mano2[1] or mano1 [0] == mano2[2]):
+        del mano1[0]
+        mano1.append (cartas())
+    elif (mano1 [1] == mano2[0] or mano1 [1] == mano2[1] or mano1 [1] == mano2[2]):
+        del mano1[1]
+        mano1.append (cartas())
+    elif(mano1 [2] == mano2[0] or mano1 [2] == mano2[1] or mano1 [2] == mano2[2]):
+        del mano1[2]
+        mano1.append (cartas())
+    return mano1
+ 
+def envido (mano1,mano2): #Revisar el envido... 
+    auxiliarCarta1 = mano1[0]
+    auxiliarCarta2 = mano1[1]
+    auxiliarCarta3 = mano1[2]
+    aux = auxiliarCarta1.split (" ")
+    numero1 = aux[0]
+    palo1 = aux [1]
+    aux = auxiliarCarta2.split (" ")
+    numero2 = aux[0]
+    palo2 = aux [1]
+    aux = auxiliarCarta3.split (" ")
+    numero3 = aux[0]
+    palo3 = aux [1]
+    print (palo1,palo2,palo3)
+    if (palo1 == palo2 or palo1 == palo3 or palo2 == palo3):
+        if (palo1 == palo2):
+            if (numero1 != 10 or numero1 != 11 or numero1 != 12 and numero2 != 10 or numero2 != 11 or numero2 != 12):
+                envido = int(numero1) + int(numero2) + 20
+                print (envido)
+
+            elif (numero1 == 10 or numero1 == 11 or numero1 == 12 and numero2 != 10 or numero2 != 11 or numero2 != 12):
+                envido = int(numero2) + 20
+                print (envido)
+
+            elif (numero1 == 10 or numero1 == 11 or numero1 == 12 and numero2 == 10 or numero2 == 11 or numero2 == 12):
+                envido = 20
+        elif (palo2 == palo3):
+            if (numero3 != 10 or numero3 != 11 or numero3 != 12 and numero2 != 10 or numero2 != 11 or numero2 != 12):
+                envido = int(numero3) + int(numero2) + 20
+                print (envido)
+
+            elif (numero3 == 10 or numero3 == 11 or numero3 == 12 and numero2 != 10 or numero2 != 11 or numero2 != 12):
+                envido = int(numero2) + 20
+                print (envido)
+
+            elif (numero3 == 10 or numero3 == 11 or numero3 == 12 and numero2 == 10 or numero2 == 11 or numero2 == 12):
+                envido = 20
+        elif (palo1 == palo3):
+            if (numero1 != 10 or numero1 != 11 or numero1 != 12 and numero3 != 10 or numero3 != 11 or numero3 != 12):
+                envido = int(numero1) + int(numero3) + 20
+                print (envido)
+
+            elif (numero1 == 10 or numero1 == 11 or numero1 == 12 and numero3 != 10 or numero3 != 11 or numero3 != 12):
+                envido = int(numero3) + 20
+                print (envido)
+
+            elif (numero1 == 10 or numero1 == 11 or numero1 == 12 and numero3 == 10 or numero3 == 11 or numero3 == 12):
+                envido = 20
+
+                print (envido)
+            
+    
+cantidadJugadores = int (input ("Ingrese la cantidad de jugadores: "))
+while cantidadJugadores != 2:
+    cantidadJugadores = int (input ("Ingrese la cantidad de jugadores: "))
+
+manoJugador1 = cartas ()
+manoJugador2 = cartas ()
+manoJugador1 = controlaCartas (manoJugador1,manoJugador2)
+
+print (manoJugador1, manoJugador2)
+tanto = envido (manoJugador1,manoJugador2)
